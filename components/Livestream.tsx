@@ -1,4 +1,3 @@
-
 import React from 'react';
 import AnimatedSection from './AnimatedSection';
 
@@ -12,14 +11,14 @@ const Livestream: React.FC = () => {
             Can't join us in person? Worship with us online every Sunday morning, right here.
           </p>
           <div className="aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl bg-black">
-            {/* YouTube Embed Placeholder */}
+            {/* Correct YouTube Embed */}
             <iframe
               width="100%"
               height="100%"
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=0&mute=1&controls=1&rel=0"
+              src="https://www.youtube.com/embed/4H2BQZmhrN8"
               title="YouTube video player"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
             ></iframe>
           </div>

@@ -22,7 +22,7 @@ const PastorMessage: React.FC = () => {
               </p>
               <div className='flex items-center justify-between'>
                 <div>
-                  <h4 className="text-xl font-semibold text-deep-blue-gray">Rev. John Doe</h4>
+                  <h4 className="text-xl font-semibold text-deep-blue-gray">Rev. karanja</h4>
                   <p className="text-warm-brown-gray">Senior Pastor</p>
                 </div>
                  <a href="#" className="bg-deep-blue-gray text-white px-6 py-2 rounded-full hover:bg-warm-brown-gray transition-colors duration-300">
