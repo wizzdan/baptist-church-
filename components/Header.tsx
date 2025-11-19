@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 
 const navLinks = [
   { name: 'HOME', href: '#home' },
-  { name: 'BLOG', href: '#events' },
-  { name: 'FEATURES', href: '#ministries' },
-  { name: 'PAGES', href: '#mission' },
-  { name: 'GALLERY', href: '#events' },
+  { name: 'ABOUT', href: '#mission' },
+  { name: 'SERVICES', href: '#services' },
+  { name: 'EVENTS', href: '#events' },
+  { name: 'MINISTRIES', href: '#ministries' },
+  { name: 'GIVE', href: '#give' },
   { name: 'CONTACT', href: '#prayer' },
 ];
 
-const Logo = () => (
-    <a href="#home" className="flex items-center space-x-2 text-white">
+const Logo = ({ onClick }: { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void }) => (
+    <a href="#home" onClick={onClick} className="flex items-center space-x-2 text-white">
         <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M12.003 21.002c-5.524 0-10.003-4.477-10.003-10.001 0-3.841 2.149-7.141 5.25-8.791.54-.29 1.13-.19 1.58.25l.43.43c.45.45.54 1.05.25 1.58-1.36 1.83-2.25 4.06-2.25 6.531 0 2.76 2.24 5 5 5h5c1.65 0 3 1.35 3 3s-1.35 3-3 3h-5.003zm2.997-10.001c0-2.21-1.79-4-4-4" />
         </svg>
@@ -35,6 +36,19 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, name: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setActiveLink(name);
+    setIsMenuOpen(false); // Closes menu on any link click (mobile)
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -42,13 +56,13 @@ const Header: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Logo />
+        <Logo onClick={(e) => handleNavClick(e, '#home', 'HOME')} />
         <nav className="hidden lg:flex space-x-8 items-center">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              onClick={() => setActiveLink(link.name)}
+              onClick={(e) => handleNavClick(e, link.href, link.name)}
               className={`uppercase tracking-wider text-sm font-medium transition-colors duration-300 ${
                   activeLink === link.name ? 'text-dusty-rose' : 'text-white hover:text-dusty-rose'
               }`}
@@ -76,10 +90,7 @@ const Header: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  setActiveLink(link.name);
-                }}
+                onClick={(e) => handleNavClick(e, link.href, link.name)}
                 className={`uppercase tracking-wider font-medium text-lg ${
                   activeLink === link.name ? 'text-dusty-rose' : 'text-white hover:text-dusty-rose'
                 }`}
