@@ -3,6 +3,9 @@ import React from 'react';
 import AnimatedSection from './AnimatedSection';
 
 const ServiceTimes: React.FC = () => {
+  // Read from environment variable (shimmed in index.html for this no-build setup)
+  const mapUrl = process.env.REACT_APP_GOOGLE_MAPS_EMBED_URL;
+
   return (
     <section id="services" className="py-20 bg-deep-blue-gray text-white">
       <div className="container mx-auto px-6">
@@ -38,16 +41,22 @@ const ServiceTimes: React.FC = () => {
             </AnimatedSection>
             <AnimatedSection>
                 <div className="overflow-hidden rounded-lg shadow-2xl h-96">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.941908759325!2d36.66014457581177!3d-1.199144935544777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f267c7423347b%3A0xe674e2a868f07611!2sLimuru%20Town%20Baptist%20Church!5e0!3m2!1sen!2ske!4v1700000000000"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Limuru Town Baptist Church Location"
-                ></iframe>
+                {mapUrl ? (
+                  <iframe
+                      src={mapUrl}
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Limuru Town Baptist Church Location"
+                  ></iframe>
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-800">
+                    <p className="text-gray-400">Map unavailable</p>
+                  </div>
+                )}
                 </div>
             </AnimatedSection>
         </div>
