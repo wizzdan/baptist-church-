@@ -1,6 +1,6 @@
 
 import React from 'react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './AnimatedSection.tsx';
 
 const ServiceTimes: React.FC = () => {
   // Read from environment variable (shimmed in index.html for this no-build setup)

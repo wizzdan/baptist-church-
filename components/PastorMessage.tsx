@@ -1,6 +1,6 @@
 
 import React from 'react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './AnimatedSection.tsx';
 
 const PastorMessage: React.FC = () => {
   return (

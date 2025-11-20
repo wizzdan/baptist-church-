@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './AnimatedSection.tsx';
 
 const PrayerRequest: React.FC = () => {
     const [name, setName] = useState('');

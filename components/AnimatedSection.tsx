@@ -1,6 +1,6 @@
 
 import React, { useRef } from 'react';
-import { useInView } from '../hooks/useInView';
+import { useInView } from '../hooks/useInView.ts';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;

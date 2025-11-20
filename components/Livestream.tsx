@@ -1,5 +1,6 @@
+
 import React from 'react';
-import AnimatedSection from './AnimatedSection';
+import AnimatedSection from './AnimatedSection.tsx';
 
 const Livestream: React.FC = () => {
   return (
