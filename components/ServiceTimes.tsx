@@ -3,8 +3,8 @@ import React from 'react';
 import AnimatedSection from './AnimatedSection.tsx';
 
 const ServiceTimes: React.FC = () => {
-  // Read from environment variable (shimmed in index.html for this no-build setup)
-  const mapUrl = process.env.REACT_APP_GOOGLE_MAPS_EMBED_URL;
+  // Safely access environment variable using optional chaining to prevent crashes
+  const mapUrl = (import.meta as any)?.env?.VITE_GOOGLE_MAPS_EMBED_URL;
 
   return (
     <section id="services" className="py-20 bg-deep-blue-gray text-white">
@@ -53,8 +53,11 @@ const ServiceTimes: React.FC = () => {
                       title="Limuru Town Baptist Church Location"
                   ></iframe>
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-800">
-                    <p className="text-gray-400">Map unavailable</p>
+                  <div className="w-full h-full flex items-center justify-center bg-gray-800 text-center p-6">
+                    <div className="space-y-2">
+                        <p className="text-light-neutral font-serif text-xl">Visit Us</p>
+                        <p className="text-gray-400 text-sm">Map unavailable. Please configure <br/><code className="bg-black/30 px-1 rounded">VITE_GOOGLE_MAPS_EMBED_URL</code><br/> in Netlify Environment Variables.</p>
+                    </div>
                   </div>
                 )}
                 </div>
