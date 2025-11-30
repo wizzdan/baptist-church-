@@ -4,31 +4,31 @@ import AnimatedSection from './AnimatedSection.tsx';
 
 const events = [
   {
-    image: 'https://picsum.photos/400/300?random=2',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/community_anual_bbq_ayaekx.jpg',
     title: 'Annual Community BBQ',
     date: 'August 25, 2024',
     description: 'Join us for a day of fun, food, and fellowship with our neighbors.'
   },
   {
-    image: 'https://picsum.photos/400/300?random=3',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/youth_camp_qwaxwe.jpg',
     title: 'Youth Summer Camp',
     date: 'September 5-8, 2024',
     description: 'An exciting week of growth, games, and worship for our youth.'
   },
   {
-    image: 'https://picsum.photos/400/300?random=4',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483500/worship_night_a2mfdz.jpg',
     title: 'Worship Night',
     date: 'September 15, 2024',
     description: 'An evening dedicated to praise and worship. All are welcome.'
   },
   {
-    image: 'https://picsum.photos/400/300?random=5',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/marriege_seminer_rcoxgk.jpg',
     title: 'Marriage Seminar',
     date: 'October 12, 2024',
     description: 'Invest in your marriage with biblical insights and practical advice.'
   },
     {
-    image: 'https://picsum.photos/400/300?random=6',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/christmas_church_rw4ka6.jpg',
     title: 'Christmas Carol Service',
     date: 'December 22, 2024',
     description: 'Celebrate the reason for the season with beautiful carols and a message of hope.'

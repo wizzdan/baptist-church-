@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 
-const fullImageUrl = "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=2070&auto=format&fit=crop";
-const placeholderImageUrl = "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?q=80&w=800&auto=format&fit=crop";
+const fullImageUrl = "https://res.cloudinary.com/dbphdr1su/image/upload/v1764483511/baptist_church_vnlael.jpg";
+const placeholderImageUrl = "https://res.cloudinary.com/dbphdr1su/image/upload/v1764483511/baptist_church_vnlael.jpg";
 
 const Hero: React.FC = () => {
     const [offsetY, setOffsetY] = useState(0);

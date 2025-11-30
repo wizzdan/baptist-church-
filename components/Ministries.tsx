@@ -5,22 +5,22 @@ import AnimatedSection from './AnimatedSection.tsx';
 const ministries = [
   {
     name: 'Children\'s Ministry',
-    image: 'https://picsum.photos/500/350?random=7',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483504/children_2_idjsoy.jpg',
     description: 'Nurturing the next generation in faith with fun, engaging, and age-appropriate teaching.'
   },
   {
     name: 'Youth Ministry',
-    image: 'https://picsum.photos/500/350?random=8',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483504/youth_dh8e9r.jpg',
     description: 'Empowering teenagers to build a strong faith foundation and navigate life\'s challenges.'
   },
   {
     name: 'Worship Team',
-    image: 'https://picsum.photos/500/350?random=9',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483500/worship_soxasg.jpg',
     description: 'Leading the congregation into God\'s presence through music and song.'
   },
   {
     name: 'Community Outreach',
-    image: 'https://picsum.photos/500/350?random=10',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/community_anual_bbq_ayaekx.jpg',
     description: 'Serving our neighbors and sharing the love of Christ through practical acts of kindness.'
   },
 ];

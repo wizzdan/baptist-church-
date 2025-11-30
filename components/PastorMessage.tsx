@@ -10,8 +10,8 @@ const PastorMessage: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center bg-light-neutral rounded-lg shadow-lg overflow-hidden">
             <div className="w-full md:w-1/3">
               <img 
-                src="https://picsum.photos/800/800?random=1" 
-                alt="Pastor John Doe" 
+                src="https://res.cloudinary.com/dbphdr1su/image/upload/v1764483499/pastor_karanja_e1h731.jpg" 
+                alt="Rev. Karanja" 
                 className="object-cover h-64 w-full md:h-full"
               />
             </div>
@@ -22,7 +22,7 @@ const PastorMessage: React.FC = () => {
               </p>
               <div className='flex items-center justify-between'>
                 <div>
-                  <h4 className="text-xl font-semibold text-deep-blue-gray">Rev. karanja</h4>
+                  <h4 className="text-xl font-semibold text-deep-blue-gray">Rev. Karanja</h4>
                   <p className="text-warm-brown-gray">Senior Pastor</p>
                 </div>
                  <a href="#" className="bg-deep-blue-gray text-white px-6 py-2 rounded-full hover:bg-warm-brown-gray transition-colors duration-300">
