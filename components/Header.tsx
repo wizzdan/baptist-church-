@@ -11,17 +11,19 @@ const navLinks = [
 ];
 
 const Logo = ({ onClick }: { onClick: (e: React.MouseEvent<HTMLAnchorElement>) => void }) => (
-    <a href="#home" onClick={onClick} className="flex items-center space-x-2 text-white">
-        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
-          <path strokeLinecap="round" strokeLinejoin="round" d="M12.003 21.002c-5.524 0-10.003-4.477-10.003-10.001 0-3.841 2.149-7.141 5.25-8.791.54-.29 1.13-.19 1.58.25l.43.43c.45.45.54 1.05.25 1.58-1.36 1.83-2.25 4.06-2.25 6.531 0 2.76 2.24 5 5 5h5c1.65 0 3 1.35 3 3s-1.35 3-3 3h-5.003zm2.997-10.001c0-2.21-1.79-4-4-4" />
-        </svg>
+    <a href="#home" onClick={onClick} className="flex items-center space-x-2 text-white group">
+        <div className="p-1.5 bg-dusty-rose rounded-sm transition-transform duration-300 group-hover:scale-110">
+            <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 21l-8.228-9.904A17.963 17.963 0 0112 4.22a17.963 17.963 0 018.228 6.876L12 21z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 12v.01" />
+            </svg>
+        </div>
         <div className="flex flex-col leading-tight">
-            <span className="text-xl font-semibold font-serif">Limuru Baptist</span>
-            <span className="text-xs tracking-widest opacity-80">CHURCH</span>
+            <span className="text-xl font-bold font-serif tracking-tight">Limuru Town Baptist</span>
+            <span className="text-[10px] tracking-[0.3em] opacity-80 font-sans uppercase">Church</span>
         </div>
     </a>
 );
-
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,7 +32,18 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
+      
+      // Basic scroll spy logic
+      const sections = navLinks.map(link => link.href.substring(1));
+      for (const section of sections.reverse()) {
+        const el = document.getElementById(section);
+        if (el && window.scrollY >= el.offsetTop - 100) {
+          const matched = navLinks.find(link => link.href === `#${section}`);
+          if (matched) setActiveLink(matched.name);
+          break;
+        }
+      }
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -42,65 +55,90 @@ const Header: React.FC = () => {
     const targetElement = document.getElementById(targetId);
 
     if (targetElement) {
-      targetElement.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Header height
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = targetElement.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
 
     setActiveLink(name);
-    setIsMenuOpen(false); // Closes menu on any link click (mobile)
+    setIsMenuOpen(false);
   };
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMenuOpen ? 'bg-black/80 shadow-lg backdrop-blur-sm' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled || isMenuOpen ? 'bg-black/90 shadow-2xl backdrop-blur-md py-3' : 'bg-transparent py-6'
       }`}
     >
-      <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-6 flex justify-between items-center">
         <Logo onClick={(e) => handleNavClick(e, '#home', 'HOME')} />
-        <nav className="hidden lg:flex space-x-8 items-center">
+        
+        {/* Desktop and Tablet Navigation (aligned at the top/right) */}
+        <nav className="hidden md:flex space-x-1 lg:space-x-4 items-center h-full">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href, link.name)}
-              className={`uppercase tracking-wider text-sm font-medium transition-colors duration-300 ${
-                  activeLink === link.name ? 'text-dusty-rose' : 'text-white hover:text-dusty-rose'
+              className={`relative px-3 lg:px-4 py-2 uppercase tracking-widest text-[11px] lg:text-xs font-semibold transition-all duration-300 group ${
+                  activeLink === link.name ? 'text-dusty-rose' : 'text-white/80 hover:text-white'
+              }`}
+            >
+              {link.name}
+              <span className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-dusty-rose transition-all duration-300 ${
+                activeLink === link.name ? 'w-2/3' : 'w-0 group-hover:w-1/2'
+              }`} />
+            </a>
+          ))}
+          <a 
+            href="#give" 
+            onClick={(e) => handleNavClick(e, '#give', 'GIVE')}
+            className="ml-4 px-5 py-2 border border-dusty-rose text-dusty-rose text-xs font-bold rounded-sm hover:bg-dusty-rose hover:text-white transition-all duration-300"
+          >
+            GIVE
+          </a>
+        </nav>
+
+        {/* Mobile Hamburger Button (Three lines) */}
+        <button 
+          className="md:hidden text-white p-2 focus:outline-none" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          aria-label="Toggle Menu"
+        >
+          <div className="w-6 h-5 relative flex flex-col justify-between">
+            <span className={`w-full h-0.5 bg-white transition-all duration-300 transform ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-full h-0.5 bg-white transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`} />
+            <span className={`w-full h-0.5 bg-white transition-all duration-300 transform ${isMenuOpen ? '-rotate-45 -translate-y-2.5' : ''}`} />
+          </div>
+        </button>
+      </div>
+
+      {/* Mobile Dropdown Menu */}
+      <div className={`md:hidden absolute top-full left-0 w-full bg-black/95 transition-all duration-300 overflow-hidden ${
+        isMenuOpen ? 'max-h-screen border-t border-white/10' : 'max-h-0'
+      }`}>
+        <nav className="flex flex-col p-8 space-y-6">
+          {navLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.href}
+              onClick={(e) => handleNavClick(e, link.href, link.name)}
+              className={`uppercase tracking-[0.2em] font-medium text-lg text-center ${
+                activeLink === link.name ? 'text-dusty-rose' : 'text-white hover:text-dusty-rose'
               }`}
             >
               {link.name}
             </a>
           ))}
         </nav>
-        <button className="lg:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"} />
-          </svg>
-        </button>
       </div>
-      {isMenuOpen && (
-        <div className="lg:hidden bg-black/90 pb-4">
-          <nav className="flex flex-col items-center space-y-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href, link.name)}
-                className={`uppercase tracking-wider font-medium text-lg ${
-                  activeLink === link.name ? 'text-dusty-rose' : 'text-white hover:text-dusty-rose'
-                }`}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-        </div>
-      )}
     </header>
   );
 };

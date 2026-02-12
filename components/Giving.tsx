@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import AnimatedSection from './AnimatedSection.tsx';
 
 const Giving: React.FC = () => {
-  const [amount, setAmount] = useState('50');
-  const presetAmounts = ['25', '50', '100', '250'];
+  const [amount, setAmount] = useState('1000');
+  const presetAmounts = ['500', '1000', '5000', '10000'];
 
   return (
     <section id="give" className="py-20 bg-light-neutral">
@@ -31,18 +31,18 @@ const Giving: React.FC = () => {
                       amount === preset ? 'bg-deep-blue-gray text-white' : 'bg-gray-200 text-deep-blue-gray hover:bg-gray-300'
                     }`}
                   >
-                    ${preset}
+                    Ksh {preset}
                   </button>
                 ))}
               </div>
               <div className="relative mb-6">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-deep-blue-gray font-bold text-lg">$</span>
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-deep-blue-gray font-bold text-lg">Ksh</span>
                 <input
                   type="number"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="Custom Amount"
-                  className="w-full p-4 pl-8 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-warm-brown-gray focus:border-warm-brown-gray transition text-lg"
+                  className="w-full p-4 pl-16 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-warm-brown-gray focus:border-warm-brown-gray transition text-lg"
                 />
               </div>
               <button className="w-full bg-warm-brown-gray text-white p-4 rounded-lg text-lg font-bold hover:bg-deep-blue-gray transition-colors duration-300 transform hover:scale-105">

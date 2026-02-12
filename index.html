@@ -4,27 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Limuru Town Baptist Church</title>
+    <title>Limuru Town Baptist Church | A Home for All</title>
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'light-neutral': '#BCB9AC',
+              'light-neutral': '#E5E1D8',
               'deep-blue-gray': '#2F4A61',
               'warm-brown-gray': '#6F6558',
-              'deep-black-gray': '#242527',
-              'teal-accent': 'rgba(35, 95, 131, 0.59)',
+              'deep-black-gray': '#1A1B1E',
+              'teal-accent': '#235F83',
               'dusty-rose': '#C08497',
+              'gold-accent': '#C5A059',
             },
             fontFamily: {
               'sans': ['Poppins', 'sans-serif'],
               'serif': ['Playfair Display', 'serif'],
+            },
+            animation: {
+              'fade-in': 'fadeIn 1s ease-out forwards',
+              'slide-up': 'slideUp 0.8s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(30px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
             },
           },
         },
@@ -32,23 +47,32 @@
     </script>
     <style>
       body {
-        background-color: #BCB9AC;
+        background-color: #E5E1D8;
         color: #2F4A61;
         font-family: 'Poppins', sans-serif;
+        line-height: 1.6;
       }
-      /* Custom scrollbar for a more premium feel */
+      h1, h2, h3, h4 {
+        font-family: 'Playfair Display', serif;
+      }
+      /* Custom scrollbar */
       ::-webkit-scrollbar {
-        width: 8px;
+        width: 10px;
       }
       ::-webkit-scrollbar-track {
-        background: #BCB9AC;
+        background: #E5E1D8;
       }
       ::-webkit-scrollbar-thumb {
-        background: #6F6558;
-        border-radius: 10px;
+        background: #C08497;
+        border-radius: 5px;
       }
       ::-webkit-scrollbar-thumb:hover {
         background: #2F4A61;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
     </style>
   <script type="importmap">

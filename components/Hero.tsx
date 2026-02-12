@@ -1,17 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 
-const fullImageUrl = "https://res.cloudinary.com/dbphdr1su/image/upload/v1764483511/baptist_church_vnlael.jpg";
-const placeholderImageUrl = "https://res.cloudinary.com/dbphdr1su/image/upload/v1764483511/baptist_church_vnlael.jpg";
+const fullImageUrl = "https://res.cloudinary.com/dbphdr1su/image/upload/v1764483511/baptist_church_vnlael.jpg"; 
 
 const Hero: React.FC = () => {
     const [offsetY, setOffsetY] = useState(0);
     const [imageLoaded, setImageLoaded] = useState(false);
-    const [currentImage, setCurrentImage] = useState(placeholderImageUrl);
-
-    const handleScroll = () => setOffsetY(window.pageYOffset);
 
     useEffect(() => {
+        const handleScroll = () => setOffsetY(window.pageYOffset);
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -19,74 +15,61 @@ const Hero: React.FC = () => {
     useEffect(() => {
         const img = new Image();
         img.src = fullImageUrl;
-        img.onload = () => {
-            setImageLoaded(true);
-            setCurrentImage(fullImageUrl);
-        };
-        img.onerror = () => {
-            console.error('Failed to load hero image');
-            // Keep using placeholder if main image fails
-            setCurrentImage(placeholderImageUrl);
-        };
+        img.onload = () => setImageLoaded(true);
     }, []);
 
-    const SliderDots = () => (
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden md:flex flex-col space-y-3 pl-6">
-        <button className="w-2.5 h-2.5 rounded-full border border-white/50 transition-colors hover:bg-white"></button>
-        <button className="w-2.5 h-2.5 rounded-full border border-white bg-white transition-colors hover:bg-white"></button>
-        <button className="w-2.5 h-2.5 rounded-full border border-white/50 transition-colors hover:bg-white"></button>
-      </div>
-    );
-
     return (
-        <section id="home" className="relative h-screen flex items-center justify-start text-white text-left overflow-hidden">
+        <section id="home" className="relative h-screen flex items-center justify-center text-white text-center overflow-hidden">
+            {/* Background Parallax Image */}
             <div
-                className="absolute top-0 left-0 w-full h-full bg-cover bg-center transition-all duration-1000 ease-out"
+                className={`absolute top-0 left-0 w-full h-[120%] z-0 transition-opacity duration-1000 ${imageLoaded ? 'opacity-100' : 'opacity-0'}`}
                 style={{
-                    backgroundImage: `url(${currentImage})`,
-                    transform: `translateY(${offsetY * 0.4}px)`,
-                    filter: 'brightness(0.7)',
+                    backgroundImage: `url(${fullImageUrl})`,
                     backgroundSize: 'cover',
-                    backgroundPosition: 'center'
+                    backgroundPosition: 'center',
+                    transform: `translateY(${offsetY * 0.4}px)`,
                 }}
             />
-            <div className="absolute top-0 left-0 w-full h-full bg-black/30" />
+            
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-black/30 to-deep-blue-gray/80" />
 
-            <SliderDots />
-
-            <div className="relative z-10 px-6 sm:px-12 md:pl-32 transition-opacity duration-1000 ease-in opacity-0 animate-fadeIn max-w-3xl">
-                <p className="text-lg md:text-xl font-sans mb-4 tracking-wide text-white/90">
-                    There is no other way except Jesus.
-                </p>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-8 drop-shadow-lg leading-tight">
-                    We love God.<br />We believe in God.
+            {/* Content */}
+            <div className="relative z-20 px-6 max-w-5xl animate-fade-in">
+                <div className="inline-block px-4 py-1.5 mb-6 border border-gold-accent/50 rounded-full bg-gold-accent/10 backdrop-blur-sm">
+                    <span className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-gold-accent uppercase">Welcome to our church family</span>
+                </div>
+                
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold mb-6 drop-shadow-2xl leading-tight">
+                    A Home For <span className="text-gold-accent italic">Everyone</span>
                 </h1>
-                <a
-                    href="#mission"
-                    className="bg-dusty-rose text-white px-10 py-4 text-sm font-semibold tracking-wider uppercase rounded-sm hover:bg-white hover:text-deep-blue-gray transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                    READ MORE
-                </a>
+                
+                <p className="text-lg md:text-xl lg:text-2xl font-light mb-10 max-w-2xl mx-auto text-light-neutral/90 leading-relaxed">
+                    Experience faith, find community, and discover your purpose at Limuru Town Baptist Church. We can't wait to meet you.
+                </p>
+
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                    <a 
+                        href="#services" 
+                        className="w-full sm:w-auto px-8 py-4 bg-dusty-rose text-white font-bold rounded-sm shadow-xl hover:bg-gold-accent transition-all duration-300 transform hover:-translate-y-1 active:scale-95 uppercase tracking-widest text-sm"
+                    >
+                        Join Our Service
+                    </a>
+                    <a 
+                        href="#mission" 
+                        className="w-full sm:w-auto px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/30 font-bold rounded-sm hover:bg-white/20 transition-all duration-300 transform hover:-translate-y-1 active:scale-95 uppercase tracking-widest text-sm"
+                    >
+                        Learn Our Story
+                    </a>
+                </div>
             </div>
 
-            {/* Loading indicator */}
-            {!imageLoaded && (
-                <div className="absolute inset-0 flex items-center justify-center z-5 bg-gray-800/50">
-                    <div className="text-white text-lg">Loading...</div>
-                </div>
-            )}
-
-            <style>{`
-                @keyframes fadeIn {
-                    to {
-                        opacity: 1;
-                    }
-                }
-                .animate-fadeIn {
-                    animation: fadeIn 1.5s forwards;
-                    animation-delay: 0.5s;
-                }
-            `}</style>
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce opacity-70">
+                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7-7-7" />
+                </svg>
+            </div>
         </section>
     );
 };
