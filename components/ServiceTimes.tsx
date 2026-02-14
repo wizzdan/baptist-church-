@@ -12,40 +12,49 @@ const ServiceTimes: React.FC = () => {
             <h2 className="text-4xl md:text-6xl font-serif font-bold text-light-neutral mb-4">Join Us in Worship</h2>
             <div className="w-24 h-1 bg-gold-accent mx-auto mb-6"></div>
             <p className="text-lg text-light-neutral/80 max-w-3xl mx-auto">
-            We gather together to praise, pray, and grow in God's word. Whether you're a lifelong believer or just curious, our doors are open to you.
+            We gather together to praise, pray, and grow in God's word. Experience our full Sunday program designed for all ages.
             </p>
         </AnimatedSection>
         
         <div className="grid lg:grid-cols-5 gap-10 items-stretch">
             <AnimatedSection className="lg:col-span-2">
-                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-sm shadow-2xl h-full border border-white/10">
-                    <h3 className="text-3xl font-serif font-bold mb-8 text-gold-accent">Worship Schedule</h3>
-                    <div className="space-y-8">
-                        <div className="flex flex-col border-l-4 border-dusty-rose pl-6">
-                            <span className="text-sm uppercase tracking-widest text-light-neutral/60 mb-1">Sunday Morning</span>
-                            <span className="text-xl font-bold">10:00 AM - 12:00 PM</span>
-                            <span className="text-sm text-gold-accent/80 italic mt-1 font-serif">Main Service</span>
+                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-sm shadow-2xl h-full border border-white/10 flex flex-col">
+                    <h3 className="text-3xl font-serif font-bold mb-8 text-gold-accent">Sunday Schedule</h3>
+                    <div className="space-y-6 flex-grow">
+                        <div className="flex flex-col border-l-4 border-dusty-rose pl-6 relative">
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-dusty-rose rounded-full border-4 border-deep-blue-gray"></div>
+                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Morning Growth</span>
+                            <span className="text-xl font-bold">9:00 AM - 11:00 AM</span>
+                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Bible Study</span>
                         </div>
-                        <div className="flex flex-col border-l-4 border-white/20 pl-6">
-                            <span className="text-sm uppercase tracking-widest text-light-neutral/60 mb-1">Wednesday Evening</span>
-                            <span className="text-xl font-bold">6:00 PM - 7:30 PM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1">Mid-Week Fellowship & Prayers</span>
+
+                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/40 rounded-full border-4 border-deep-blue-gray"></div>
+                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Corporate Worship</span>
+                            <span className="text-xl font-bold">11:00 AM - 12:00 PM</span>
+                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Main Service</span>
                         </div>
-                        <div className="flex flex-col border-l-4 border-white/20 pl-6">
-                            <span className="text-sm uppercase tracking-widest text-light-neutral/60 mb-1">Friday Youth</span>
-                            <span className="text-xl font-bold">5:30 PM - 7:00 PM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1">Impact Youth Gathering</span>
+
+                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/40 rounded-full border-4 border-deep-blue-gray"></div>
+                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">The Word & Classes</span>
+                            <span className="text-xl font-bold">12:00 PM - 1:00 PM</span>
+                            <p className="text-sm text-light-neutral/60 mt-1 leading-relaxed italic">
+                                Preaching & release of Youths, Teens, and Sunday School to their respective classes.
+                            </p>
                         </div>
-                         <div className="flex flex-col border-l-4 border-white/20 pl-6">
-                            <span className="text-sm uppercase tracking-widest text-light-neutral/60 mb-1">Bible Study</span>
-                            <span className="text-xl font-bold">Sunday, 9:00 AM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1">Growing together in Word</span>
+
+                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
+                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/20 rounded-full border-4 border-deep-blue-gray"></div>
+                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Benediction</span>
+                            <span className="text-xl font-bold">1:00 PM</span>
+                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Closing of Service</span>
                         </div>
                     </div>
                     
                     <div className="mt-12 pt-8 border-t border-white/10">
-                        <h4 className="font-bold mb-2">Location:</h4>
-                        <p className="text-light-neutral/70">Limuru Town, Adjacent to Limuru Police Station, Kiambu County, Kenya.</p>
+                        <h4 className="font-bold mb-2 text-gold-accent text-sm uppercase tracking-widest">Our Location:</h4>
+                        <p className="text-light-neutral/70 text-sm">Limuru Town, Adjacent to Limuru Police Station, Kiambu County, Kenya.</p>
                     </div>
                 </div>
             </AnimatedSection>
@@ -56,13 +65,14 @@ const ServiceTimes: React.FC = () => {
                         src={churchMapUrl}
                         width="100%"
                         height="100%"
-                        style={{ border: 0, filter: 'grayscale(0.3) contrast(1.1) invert(0)' }}
+                        style={{ border: 0, filter: 'grayscale(0.2) contrast(1.1)' }}
                         allowFullScreen={true}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
                         title="Limuru Town Baptist Church Location"
                         className="absolute inset-0"
                     ></iframe>
+                    <div className="absolute inset-0 bg-deep-blue-gray/10 pointer-events-none group-hover:bg-transparent transition-colors duration-500"></div>
                 </div>
             </AnimatedSection>
         </div>
