@@ -2,9 +2,14 @@ import React from 'react';
 import AnimatedSection from './AnimatedSection.tsx';
 
 const Giving: React.FC = () => {
-  // Common placeholders - these can be easily updated to the actual church numbers
-  const paybillNumber = "123456"; 
-  const accountNumber = "OFFERING,THANKS GIVING,SEED";
+  // Church specific M-Pesa details
+  const paybillNumber = "522533"; 
+  const accounts = [
+    { label: "Offering", code: "5611634#Of" },
+    { label: "Tithe", code: "5611634#Th" },
+    { label: "Development", code: "5611634#Dev" },
+    { label: "Benevolence", code: "5611634#Bev" }
+  ];
 
   return (
     <section id="give" className="py-24 bg-light-neutral">
@@ -34,6 +39,7 @@ const Giving: React.FC = () => {
                 <p className="text-warm-brown-gray text-center text-sm mb-10">Simple and secure via your mobile phone</p>
                 
                 <div className="space-y-6">
+                  {/* Paybill Card */}
                   <div className="flex flex-col items-center justify-center p-6 bg-light-neutral/50 rounded-sm border border-gold-accent/20 group hover:border-gold-accent/50 transition-colors">
                     <span className="text-[10px] uppercase tracking-[0.3em] text-warm-brown-gray mb-2 font-bold">Paybill Number</span>
                     <span className="text-4xl md:text-5xl font-serif font-bold text-deep-blue-gray tracking-tighter">
@@ -41,20 +47,26 @@ const Giving: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="flex flex-col items-center justify-center p-6 bg-light-neutral/50 rounded-sm border border-gold-accent/20 group hover:border-gold-accent/50 transition-colors">
-                    <span className="text-[10px] uppercase tracking-[0.3em] text-warm-brown-gray mb-2 font-bold">Account Name</span>
-                    <span className="text-2xl md:text-3xl font-serif font-bold text-deep-blue-gray uppercase tracking-tight">
-                      {accountNumber}
-                    </span>
+                  {/* Accounts List */}
+                  <div className="bg-light-neutral/30 rounded-sm border border-black/5 p-6">
+                    <span className="block text-center text-[10px] uppercase tracking-[0.3em] text-warm-brown-gray mb-4 font-bold">Account Designations</span>
+                    <div className="space-y-3">
+                      {accounts.map((acc, idx) => (
+                        <div key={idx} className="flex justify-between items-center pb-2 border-b border-black/5 last:border-0 last:pb-0">
+                          <span className="text-sm font-medium text-warm-brown-gray">{acc.label}</span>
+                          <span className="text-md font-mono font-bold text-deep-blue-gray">{acc.code}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
 
                 <div className="mt-10 pt-8 border-t border-black/5">
                   <h4 className="text-xs font-bold uppercase tracking-widest text-deep-blue-gray mb-4 text-center">How to Give:</h4>
-                  <ol className="text-sm text-warm-brown-gray space-y-3 max-w-xs mx-auto">
+                  <ol className="text-sm text-warm-brown-gray space-y-3 max-w-md mx-auto">
                     <li className="flex items-start"><span className="font-bold text-gold-accent mr-3">1.</span> Go to M-Pesa Menu & select Lipa na M-Pesa</li>
                     <li className="flex items-start"><span className="font-bold text-gold-accent mr-3">2.</span> Select Pay Bill & enter <strong>{paybillNumber}</strong></li>
-                    <li className="flex items-start"><span className="font-bold text-gold-accent mr-3">3.</span> Enter <strong>{accountNumber}</strong> as Account Name</li>
+                    <li className="flex items-start"><span className="font-bold text-gold-accent mr-3">3.</span> For Account, enter the <strong>specific code</strong> for your gift (e.g., {accounts[0].code})</li>
                     <li className="flex items-start"><span className="font-bold text-gold-accent mr-3">4.</span> Enter amount and your M-Pesa PIN</li>
                   </ol>
                 </div>

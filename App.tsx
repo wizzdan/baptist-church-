@@ -1,36 +1,29 @@
 
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header.tsx';
-import Hero from './components/Hero.tsx';
-import MissionVision from './components/MissionVision.tsx';
-import ServiceTimes from './components/ServiceTimes.tsx';
-import PastorMessage from './components/PastorMessage.tsx';
-import UpcomingEvents from './components/UpcomingEvents.tsx';
-import Livestream from './components/Livestream.tsx';
-import Ministries from './components/Ministries.tsx';
-import Giving from './components/Giving.tsx';
-import Testimonials from './components/Testimonials.tsx';
-import PrayerRequest from './components/PrayerRequest.tsx';
+import Home from './components/Home.tsx';
+import History from './components/History.tsx';
+import Leadership from './components/Leadership.tsx';
 import Footer from './components/Footer.tsx';
+import ScrollToTop from './components/ScrollToTop.tsx';
 
 const App: React.FC = () => {
   return (
-    <div className="bg-light-neutral font-sans overflow-x-hidden">
-      <Header />
-      <main>
-        <Hero />
-        <MissionVision />
-        <ServiceTimes />
-        <PastorMessage />
-        <UpcomingEvents />
-        <Livestream />
-        <Ministries />
-        <Giving />
-        <Testimonials />
-        <PrayerRequest />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="bg-light-neutral font-sans overflow-x-hidden min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/leadership" element={<Leadership />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

@@ -1,11 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 type SocialIconProps = {
     href: string;
     children: React.ReactNode;
 };
 
-// Fix: Explicitly type SocialIcon as a React.FC to help TypeScript correctly infer the `children` prop.
 const SocialIcon: React.FC<SocialIconProps> = ({ href, children }) => (
     <a href={href} target="_blank" rel="noopener noreferrer" className="text-light-neutral/70 hover:text-white transition-colors duration-300">
         {children}
@@ -37,12 +37,12 @@ const Footer: React.FC = () => {
                     <div>
                         <h4 className="text-xl font-semibold text-white mb-4">Quick Links</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
-                            <li><a href="#mission" className="hover:text-white transition-colors">About Us</a></li>
-                            <li><a href="#services" className="hover:text-white transition-colors">Service Times</a></li>
-                            <li><a href="#events" className="hover:text-white transition-colors">Events</a></li>
-                            <li><a href="#ministries" className="hover:text-white transition-colors">Ministries</a></li>
-                            <li><a href="#give" className="hover:text-white transition-colors">Give</a></li>
+                            <li><Link to="/" className="hover:text-white transition-colors">Home</Link></li>
+                            <li><Link to="/history" className="hover:text-white transition-colors">Our History</Link></li>
+                            <li><Link to="/leadership" className="hover:text-white transition-colors">Our Leadership</Link></li>
+                            <li><Link to="/#services" className="hover:text-white transition-colors">Service Times</Link></li>
+                            <li><Link to="/#ministries" className="hover:text-white transition-colors">Ministries</Link></li>
+                            <li><Link to="/#give" className="hover:text-white transition-colors">Give</Link></li>
                         </ul>
                     </div>
                     {/* Contact Info */}
@@ -71,5 +71,6 @@ const Footer: React.FC = () => {
         </footer>
     );
 };
+
 
 export default Footer;
