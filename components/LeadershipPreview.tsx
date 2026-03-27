@@ -17,8 +17,13 @@ const LeadershipPreview: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
           {/* Senior Pastor */}
           <AnimatedSection className="bg-white/5 p-8 rounded-xl border border-white/10">
-            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30">
-              <span className="text-[10px] opacity-50">[Image]</span>
+            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30 overflow-hidden">
+              <img 
+                src="https://res.cloudinary.com/dbphdr1su/image/upload/v1772983097/cropped_circle_image_5_-Picsart-AiImageEnhancer_utnq9e.png" 
+                alt="Rev. Stephen Karanja" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <h3 className="text-xl font-bold mb-1">Rev. Stephen Karanja</h3>
             <p className="text-gold-accent text-sm uppercase tracking-widest">Senior Pastor</p>
@@ -26,8 +31,13 @@ const LeadershipPreview: React.FC = () => {
 
           {/* Assistant Pastor 1 */}
           <AnimatedSection className="bg-white/5 p-8 rounded-xl border border-white/10">
-            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30">
-              <span className="text-[10px] opacity-50">[Image]</span>
+            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30 overflow-hidden">
+              <img 
+                src="https://res.cloudinary.com/dbphdr1su/image/upload/v1773516858/cropped_circle_image_7_dgt21t.png" 
+                alt="Rev. Moses Omolo" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <h3 className="text-xl font-bold mb-1">Rev. Moses Omolo</h3>
             <p className="text-gold-accent text-sm uppercase tracking-widest">Assistant Pastor</p>
@@ -35,7 +45,7 @@ const LeadershipPreview: React.FC = () => {
 
           {/* Assistant Pastor 2 */}
           <AnimatedSection className="bg-white/5 p-8 rounded-xl border border-white/10">
-            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30">
+            <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30 overflow-hidden">
               <span className="text-[10px] opacity-50">[Image]</span>
             </div>
             <h3 className="text-xl font-bold mb-1">Julius Ngugi</h3>

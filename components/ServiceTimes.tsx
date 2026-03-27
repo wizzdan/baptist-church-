@@ -54,7 +54,7 @@ const ServiceTimes: React.FC = () => {
                     
                     <div className="mt-12 pt-8 border-t border-white/10">
                         <h4 className="font-bold mb-2 text-gold-accent text-sm uppercase tracking-widest">Our Location:</h4>
-                        <p className="text-light-neutral/70 text-sm">Limuru Town, Adjacent to Limuru Police Station, Kiambu County, Kenya.</p>
+                        <p className="text-light-neutral/70 text-sm">LIMURU TOWN BAPTIST CHURCH, Limuru Town, Kenya.</p>
                     </div>
                 </div>
             </AnimatedSection>
