@@ -1,10 +1,12 @@
 
 import React from 'react';
+import SEO from './SEO.tsx';
 import AnimatedSection from './AnimatedSection.tsx';
 
 const History: React.FC = () => {
   return (
     <div className="pt-32 pb-20 bg-light-neutral min-h-screen">
+      <SEO title="Our History" description="Learn about the journey of faith and community at Limuru Town Baptist Church, from its founding to the present day." />
       <div className="container mx-auto px-6 max-w-4xl">
         <AnimatedSection>
           <h1 className="text-5xl md:text-6xl font-serif text-deep-blue-gray mb-8 text-center">Our History</h1>

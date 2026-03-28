@@ -1,5 +1,6 @@
 
 import React from 'react';
+import SEO from './SEO.tsx';
 import AnimatedSection from './AnimatedSection.tsx';
 
 interface LeaderProps {
@@ -58,6 +59,7 @@ const Leadership: React.FC = () => {
 
   return (
     <div className="pt-32 pb-20 bg-light-neutral min-h-screen">
+      <SEO title="Our Leadership" description="Meet the dedicated team of pastors, officers, and deacons who serve Limuru Town Baptist Church with faith, love, and wisdom." />
       <div className="container mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-serif text-deep-blue-gray mb-6">Our Leadership</h1>

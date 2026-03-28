@@ -1,5 +1,6 @@
 
 import React from 'react';
+import SEO from './SEO.tsx';
 import Hero from './Hero.tsx';
 import HistoryPreview from './HistoryPreview.tsx';
 import MissionVision from './MissionVision.tsx';
@@ -16,6 +17,7 @@ import SectionDivider from './SectionDivider.tsx';
 const Home: React.FC = () => {
   return (
     <>
+      <SEO title="A Home for All" description="Welcome to Limuru Town Baptist Church. A community of believers dedicated to knowing God and making Him known." />
       <section id="home"><Hero /></section>
       
       <SectionDivider color="#E5E1D8" backgroundColor="transparent" position="bottom" />
