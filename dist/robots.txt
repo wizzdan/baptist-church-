@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://limurutownbaptistchurch.org/sitemap.xml

@@ -3,7 +3,7 @@ import AnimatedSection from './AnimatedSection.tsx';
 
 const ServiceTimes: React.FC = () => {
   // Use the specific map link provided by the user
-  const churchMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3791.6963654496926!2d36.636665774724115!3d-1.1078914988814659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f27c7218e663d%3A0xa0758bdd40f5d49f!2sLimuru%20Town%20Baptist%20Church!5e1!3m2!1sen!2ske!4v1770806303845!5m2!1sen!2ske";
+  const churchMapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d169.1268389781344!2d36.6383290678729!3d-1.1140620784755837!2m3!1f55.751123287444265!2f45!3f0!3m2!1i1024!2i768!4f35!3m3!1m2!1s0x182f27b8458e4c2d%3A0x4f19743fdecafbe5!2sVJPQ%2BMXP%2C%20Kamirithu!5e1!3m2!1sen!2ske!4v1779525117317!5m2!1sen!2ske";
 
   return (
     <section id="services" className="py-24 bg-deep-blue-gray text-white">
@@ -19,36 +19,47 @@ const ServiceTimes: React.FC = () => {
         <div className="grid lg:grid-cols-5 gap-10 items-stretch">
             <AnimatedSection className="lg:col-span-2">
                 <div className="bg-white/5 backdrop-blur-sm p-8 rounded-sm shadow-2xl h-full border border-white/10 flex flex-col">
-                    <h3 className="text-3xl font-serif font-bold mb-8 text-gold-accent">Sunday Schedule</h3>
+                    <h3 className="text-3xl font-serif font-bold mb-8 text-gold-accent">Our Schedules</h3>
                     <div className="space-y-6 flex-grow">
-                        <div className="flex flex-col border-l-4 border-dusty-rose pl-6 relative">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-dusty-rose rounded-full border-4 border-deep-blue-gray"></div>
-                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Morning Growth</span>
-                            <span className="text-xl font-bold">9:00 AM - 11:00 AM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Bible Study</span>
+                        {/* Sunday Section */}
+                        <div>
+                            <h4 className="text-xs uppercase tracking-widest text-gold-accent font-bold mb-4 border-b border-white/10 pb-2">Order of Sunday Service</h4>
+                            <div className="space-y-4">
+                                <div className="flex flex-col border-l-4 border-dusty-rose pl-4 relative">
+                                    <div className="absolute -left-[9px] top-0.5 w-4 h-4 bg-dusty-rose rounded-full border-4 border-deep-blue-gray"></div>
+                                    <span className="text-sm font-semibold text-light-neutral/70">Bible Study</span>
+                                    <span className="text-lg font-bold">9:30 AM – 10:30 AM</span>
+                                </div>
+                                <div className="flex flex-col border-l-4 border-dusty-rose pl-4 relative">
+                                    <div className="absolute -left-[9px] top-0.5 w-4 h-4 bg-dusty-rose rounded-full border-4 border-deep-blue-gray"></div>
+                                    <span className="text-sm font-semibold text-light-neutral/70">Sunday School</span>
+                                    <span className="text-lg font-bold">9:30 AM – 11:00 AM</span>
+                                </div>
+                                <div className="flex flex-col border-l-4 border-gold-accent pl-4 relative">
+                                    <div className="absolute -left-[9px] top-0.5 w-4 h-4 bg-gold-accent rounded-full border-4 border-deep-blue-gray"></div>
+                                    <span className="text-sm font-semibold text-light-neutral/70">Main Service</span>
+                                    <span className="text-lg font-bold">10:30 AM – 12:45 PM</span>
+                                </div>
+                            </div>
                         </div>
 
-                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/40 rounded-full border-4 border-deep-blue-gray"></div>
-                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Corporate Worship</span>
-                            <span className="text-xl font-bold">11:00 AM - 12:00 PM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Main Service</span>
-                        </div>
-
-                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/40 rounded-full border-4 border-deep-blue-gray"></div>
-                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">The Word & Classes</span>
-                            <span className="text-xl font-bold">12:00 PM - 1:00 PM</span>
-                            <p className="text-sm text-light-neutral/60 mt-1 leading-relaxed italic">
-                                Preaching & release of Youths, Teens, and Sunday School to their respective classes.
-                            </p>
-                        </div>
-
-                        <div className="flex flex-col border-l-4 border-white/20 pl-6 relative">
-                            <div className="absolute -left-[9px] top-0 w-4 h-4 bg-white/20 rounded-full border-4 border-deep-blue-gray"></div>
-                            <span className="text-[10px] uppercase tracking-widest text-gold-accent mb-1 font-bold">Benediction</span>
-                            <span className="text-xl font-bold">1:00 PM</span>
-                            <span className="text-sm text-light-neutral/60 mt-1 font-serif">Closing of Service</span>
+                        {/* Mid-week & Saturday Section */}
+                        <div className="pt-4">
+                            <h4 className="text-xs uppercase tracking-widest text-gold-accent font-bold mb-4 border-b border-white/10 pb-2">Weekly Activities</h4>
+                            <div className="space-y-4">
+                                <div className="flex flex-col border-l-4 border-white/30 pl-4 relative">
+                                    <div className="absolute -left-[9px] top-0.5 w-4 h-4 bg-white/30 rounded-full border-4 border-deep-blue-gray"></div>
+                                    <span className="text-xs uppercase tracking-widest text-gold-accent mb-1 font-bold">Wednesday</span>
+                                    <span className="text-sm font-semibold text-light-neutral/70">Prayer Meeting</span>
+                                    <span className="text-lg font-bold">5:30 PM – 6:30 PM</span>
+                                </div>
+                                <div className="flex flex-col border-l-4 border-white/30 pl-4 relative">
+                                    <div className="absolute -left-[9px] top-0.5 w-4 h-4 bg-white/30 rounded-full border-4 border-deep-blue-gray"></div>
+                                    <span className="text-xs uppercase tracking-widest text-gold-accent mb-1 font-bold">Saturday</span>
+                                    <span className="text-sm font-semibold text-light-neutral/70">Youth Meeting</span>
+                                    <span className="text-lg font-bold">2:00 PM – 4:00 PM</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     
