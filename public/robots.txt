@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://limurutownbaptistchurch.co.ke/sitemap.xml
+Sitemap: https://limurutownbaptistchurch.org/sitemap.xml

@@ -3,7 +3,7 @@ import AnimatedSection from './AnimatedSection.tsx';
 
 const events = [
   {
-    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1774607546/Church-Building-Construction-825x475-1-768x442_egptti.jpg',
+    image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1779466659/WhatsApp_Image_2026-05-21_at_13.45.49_dbbvbi.jpg',
     title: 'Church Construction Project',
     date: 'Ongoing Activity',
     description: 'Ongoing development and improvement of church facilities to better serve our growing community.'

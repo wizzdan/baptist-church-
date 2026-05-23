@@ -51,7 +51,8 @@ const Footer: React.FC = () => {
                         <ul className="space-y-3 text-sm">
                             <li className="flex items-start"><span className="mt-1 mr-2 w-4 h-4 text-warm-brown-gray">&#9679;</span> LIMURU TOWN BAPTIST CHURCH, Limuru Town, Kenya</li>
                             <li className="flex items-start"><span className="mt-1 mr-2 w-4 h-4 text-warm-brown-gray">&#9679;</span> +254 719 763857</li>
-                            <li className="flex items-start"><span className="mt-1 mr-2 w-4 h-4 text-warm-brown-gray">&#9679;</span> <a href="https://limurutownbaptistchurch.co.ke" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">limurutownbaptistchurch.co.ke</a></li>
+                            <li className="flex items-start"><span className="mt-1 mr-2 w-4 h-4 text-warm-brown-gray">&#9679;</span> <a href="mailto:limurutownbaptist@gmail.com" className="hover:text-white transition-colors">limurutownbaptist@gmail.com</a></li>
+                            <li className="flex items-start"><span className="mt-1 mr-2 w-4 h-4 text-warm-brown-gray">&#9679;</span> <a href="https://limurutownbaptistchurch.org" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">limurutownbaptistchurch.org</a></li>
                         </ul>
                     </div>
                     {/* Newsletter */}

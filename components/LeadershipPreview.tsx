@@ -48,7 +48,7 @@ const LeadershipPreview: React.FC = () => {
             <div className="w-24 h-24 bg-white/10 rounded-full mx-auto mb-4 flex items-center justify-center border border-dashed border-white/30 overflow-hidden">
               <span className="text-[10px] opacity-50">[Image]</span>
             </div>
-            <h3 className="text-xl font-bold mb-1">Julius Ngugi</h3>
+            <h3 className="text-xl font-bold mb-1">Pastor Samuel Kimani</h3>
             <p className="text-gold-accent text-sm uppercase tracking-widest">Assistant Pastor</p>
           </AnimatedSection>
         </div>

@@ -31,15 +31,11 @@ const Leadership: React.FC = () => {
       role: 'Assistant Pastor',
       imageUrl: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1773516858/cropped_circle_image_7_dgt21t.png'
     },
-    { name: 'Julius Ngugi', role: 'Assistant Pastor' },
     { name: 'Pastor Samuel Kimani', role: 'Assistant Pastor' },
   ];
 
-  const churchOfficers: LeaderProps[] = [
-    { name: 'Nelson Kamau', role: 'Church Secretary' },
-  ];
-
   const deacons: LeaderProps[] = [
+    { name: 'Nelson Kamau', role: 'Deacon' },
     { 
       name: 'Ruth Kamau', 
       role: 'Deacon',
@@ -59,12 +55,12 @@ const Leadership: React.FC = () => {
 
   return (
     <div className="pt-32 pb-20 bg-light-neutral min-h-screen">
-      <SEO title="Our Leadership" description="Meet the dedicated team of pastors, officers, and deacons who serve Limuru Town Baptist Church with faith, love, and wisdom." />
+      <SEO title="Our Leadership" description="Meet the dedicated team of pastors and deacons who serve Limuru Town Baptist Church with faith, love, and wisdom." />
       <div className="container mx-auto px-6">
         <AnimatedSection className="text-center mb-16">
           <h1 className="text-5xl md:text-6xl font-serif text-deep-blue-gray mb-6">Our Leadership</h1>
           <p className="text-lg text-warm-brown-gray max-w-2xl mx-auto">
-            Meet the dedicated team of pastors, officers, and deacons who serve our congregation and community with faith, love, and wisdom.
+            Meet the dedicated team of pastors and deacons who serve our congregation and community with faith, love, and wisdom.
           </p>
         </AnimatedSection>
 
@@ -86,16 +82,6 @@ const Leadership: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {assistantPastors.map((pastor) => (
               <LeaderCard key={pastor.name} name={pastor.name} role={pastor.role} imageUrl={pastor.imageUrl} />
-            ))}
-          </div>
-        </AnimatedSection>
-
-        {/* Church Officers */}
-        <AnimatedSection className="mb-20">
-          <h2 className="text-2xl font-serif text-deep-blue-gray mb-12 text-center uppercase tracking-widest border-b border-gold-accent/30 pb-4 max-w-4xl mx-auto">Church Officers</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-            {churchOfficers.map((officer) => (
-              <LeaderCard key={officer.name} name={officer.name} role={officer.role} imageUrl={officer.imageUrl} />
             ))}
           </div>
         </AnimatedSection>
