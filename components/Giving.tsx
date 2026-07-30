@@ -81,12 +81,6 @@ const Giving: React.FC = () => {
                         </div>
                       ))}
                     </div>
-                    {/* Benevolence Note */}
-                    <div className="mt-4 pt-3 border-t border-black/10 text-center">
-                      <p className="text-xs text-dusty-rose font-medium">
-                        Benevolence — KCB Limuru A/C: 1282970305
-                      </p>
-                    </div>
                   </div>
                 </div>
 

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AnimatedSection from './AnimatedSection.tsx';
 
 const ministries = [
@@ -14,9 +15,11 @@ const ministries = [
     description: 'Empowering teenagers to build a strong faith foundation and navigate life\'s challenges.'
   },
   {
-    name: 'Worship Team',
+    name: 'Praise & Worship Department',
     image: 'https://res.cloudinary.com/dbphdr1su/image/upload/v1764483500/worship_soxasg.jpg',
-    description: 'Leading the congregation into God\'s presence through music and song.'
+    description: 'Leading the congregation into God\'s presence through spirit-filled, Christ-centered worship.',
+    link: '/praise-and-worship',
+    linkText: 'Explore Department Page'
   },
   {
     name: 'Community Outreach',
@@ -36,18 +39,35 @@ const Ministries: React.FC = () => {
           </p>
         </AnimatedSection>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {ministries.map((ministry, index) => (
-            <AnimatedSection key={index}>
-              <div className="rounded-lg overflow-hidden shadow-lg group relative h-96">
+          {ministries.map((ministry, index) => {
+            const cardContent = (
+              <div className="rounded-lg overflow-hidden shadow-lg group relative h-96 transition-all duration-300 hover:shadow-2xl">
                 <img src={ministry.image} alt={ministry.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"/>
                 <div className="absolute inset-0 bg-teal-accent bg-opacity-70 transition-opacity duration-300 group-hover:bg-opacity-80"></div>
                 <div className="absolute inset-0 p-6 flex flex-col justify-end text-white">
                     <h3 className="text-2xl font-serif font-bold mb-2">{ministry.name}</h3>
-                    <p className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-full transition-all duration-500 ease-in-out">{ministry.description}</p>
+                    <p className="opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-full transition-all duration-500 ease-in-out text-sm mb-2">{ministry.description}</p>
+                    {ministry.link && (
+                      <span className="inline-block mt-2 font-sans text-xs font-bold uppercase tracking-widest text-gold-accent group-hover:underline">
+                        {ministry.linkText} &rarr;
+                      </span>
+                    )}
                 </div>
               </div>
-            </AnimatedSection>
-          ))}
+            );
+
+            return (
+              <AnimatedSection key={index}>
+                {ministry.link ? (
+                  <Link to={ministry.link} className="block">
+                    {cardContent}
+                  </Link>
+                ) : (
+                  cardContent
+                )}
+              </AnimatedSection>
+            );
+          })}
         </div>
       </div>
     </section>

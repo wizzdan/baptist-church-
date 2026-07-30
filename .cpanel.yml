@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export DEPLOYPATH=/home/limuruto/public_html/
     - /bin/mkdir -p $DEPLOYPATH
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - /bin/cp -R /home/limuruto/repositories/baptist-church-/dist/. $DEPLOYPATH

@@ -79,7 +79,7 @@ const Leadership: React.FC = () => {
         {/* Assistant Pastors */}
         <AnimatedSection className="mb-20">
           <h2 className="text-2xl font-serif text-deep-blue-gray mb-12 text-center uppercase tracking-widest border-b border-gold-accent/30 pb-4 max-w-4xl mx-auto">Pastoral Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {assistantPastors.map((pastor) => (
               <LeaderCard key={pastor.name} name={pastor.name} role={pastor.role} imageUrl={pastor.imageUrl} />
             ))}
@@ -87,7 +87,7 @@ const Leadership: React.FC = () => {
         </AnimatedSection>
 
         {/* Deacons */}
-        <AnimatedSection>
+        <AnimatedSection className="mb-12">
           <h2 className="text-2xl font-serif text-deep-blue-gray mb-12 text-center uppercase tracking-widest border-b border-gold-accent/30 pb-4 max-w-4xl mx-auto">Our Deacons</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
             {deacons.map((deacon) => (

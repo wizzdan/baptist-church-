@@ -5,6 +5,7 @@ import Header from './components/Header.tsx';
 import Home from './components/Home.tsx';
 import History from './components/History.tsx';
 import Leadership from './components/Leadership.tsx';
+import PraiseAndWorship from './components/PraiseAndWorship.tsx';
 import Footer from './components/Footer.tsx';
 import ScrollToTop from './components/ScrollToTop.tsx';
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/history" element={<History />} />
             <Route path="/leadership" element={<Leadership />} />
+            <Route path="/praise-and-worship" element={<PraiseAndWorship />} />
           </Routes>
         </main>
         <Footer />
